@@ -2,14 +2,16 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		int a, b;
 		while(input.hasNext()) {
-			a = input.nextInt();
-			b = input.nextInt();
-			if(a == 0 && b == 0)
+			int a, b=0,N;
+			N = input.nextInt();
+			if(N == 0) 
 				break;
-			else
-				System.out.println(a + b);
+			for(int i = 0; i < N; i++) {
+				a = input.nextInt();
+				b += a;		
+			}
+			System.out.println(b);
 		}
 	}
 }
