@@ -3,17 +3,31 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		int N = input.nextInt();
-		for (int i = 0; i < N; i++) {
-			int M = input.nextInt();
-			int num = 0;
-			for (int j = 0; j < M; j++) {
-				int n = input.nextInt();
-				num += n;
+		while (input.hasNext()) {
+			int a = input.nextInt();
+			int b = input.nextInt();
+			if (b == 0)
+				System.out.println(1);
+			else {
+				int aa = a % 10;
+				int bb = b % 4;
+				if (bb == 0) {
+					int count = 1;
+					while (count < 4) {
+						aa *= aa;
+						count++;
+					}
+
+				} else {
+					int count = 1;
+					int aaa = aa;
+					while (count < bb) {
+						aa *= aaa;
+						count++;
+					}
+				}
+				System.out.println(aa % 10);
 			}
-			System.out.println(num);
-			if(i != N -1)
-				System.out.println();
 		}
 	}
 }
