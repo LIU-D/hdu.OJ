@@ -3,24 +3,21 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		Scanner s = new Scanner(System.in);
-		int dd[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-		while (s.hasNext()) {
-			int days = 0;
-			String str = s.nextLine();
-			String[] date = str.split("/");
-			int y = Integer.parseInt(date[0]);
-			int m = Integer.parseInt(date[1]);
-			int d = Integer.parseInt(date[2]);
-			if ((y % 400 == 0 || (y % 4 == 0 && y % 100 != 0)) && m > 2)
-				days++;
-			days += d;
-			for (int i = 0; i < m; i++) {
-				days += dd[i];
+		Scanner input = new Scanner(System.in);
+		while (input.hasNext()) {
+			int n = input.nextInt();
+			int[] p = new int[n];
+			int count = 0;
+			int temp = 1;
+			for (int i = 0; i < n; i++) {
+				int a = input.nextInt();
+				if ((a % 2) != 0)
+					p[count++] = a;
 			}
-			System.out.println(days);
+			for (int j = 0; j < count; j++) {
+				temp *= p[j];
+			}
+			System.out.println(temp);
 		}
-		s.close();
 	}
-
 }
