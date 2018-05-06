@@ -5,20 +5,14 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		while (input.hasNext()) {
-			int x = input.nextInt();
-			int a = 0, b = 0, c = 0;
-			if(x == 0) break;
-			for (int i = 0; i < x; i++) {
-				Double y = input.nextDouble();
-				if (y < 0)
-					++a;
-				else if (y == 0)
-					++b;
-				else if (y > 0)
-					++c;
+			Double x = input.nextDouble();
+			int y = input.nextInt();
+			Double num = (double) 0;
+			for(int i = 0; i < y; i++) {
+				num += x;
+				x = Math.sqrt(x);
 			}
-			System.out.println(a + " " + b + " " + c);
-
+			System.out.println(String.format("%.2f", num));
 		}
 	}
 }
