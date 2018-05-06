@@ -5,19 +5,23 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		while (input.hasNext()) {
-			int n = input.nextInt();
-			int[] p = new int[n];
-			int count = 0;
-			int temp = 1;
-			for (int i = 0; i < n; i++) {
-				int a = input.nextInt();
-				if ((a % 2) != 0)
-					p[count++] = a;
+			int a = input.nextInt();
+			int b = input.nextInt();
+			if(a > b) {
+				int temp = a;
+				a = b;
+				b = temp;
 			}
-			for (int j = 0; j < count; j++) {
-				temp *= p[j];
+			int temp_a = 0;
+			int temp_b = 0;
+			for (int i = a; i <= b; i++) {
+				if (i % 2 == 0)
+					temp_a += i * i;
+				else
+					temp_b += i * i * i;
 			}
-			System.out.println(temp);
+
+			System.out.println(temp_a + " " + temp_b);
 		}
 	}
 }
